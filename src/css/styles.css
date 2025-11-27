@@ -1170,3 +1170,121 @@ img {
     align-items: flex-start;
   }
 }
+/* --- Reviews Section --- */
+.reviews {
+  background-color: var(--color-bg-alt);
+}
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.review-card {
+  background-color: var(--color-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.review-card__header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.review-card__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-card__info {
+  flex-grow: 1;
+}
+
+.review-card__name {
+  font-family: var(--font-heading);
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.review-card__position {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.review-card__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.review-card__stars i {
+  width: 16px;
+  height: 16px;
+  color: #fbbf24;
+  /* Amber/Gold color for stars */
+  fill: #fbbf24;
+}
+
+.review-card__text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.review-card__text strong {
+  color: var(--color-text);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* --- Mobile Horizontal Scroll (Snap) --- */
+@media (max-width: 992px) {
+  .reviews__grid {
+    display: flex;
+    /* Перемикаємо на флекс для скролу */
+    overflow-x: auto;
+    /* Горизонтальний скрол */
+    scroll-snap-type: x mandatory;
+    /* Магнітний ефект */
+    padding-bottom: 20px;
+    /* Місце для скролбару */
+    gap: 20px;
+    -webkit-overflow-scrolling: touch;
+    /* Плавність на iOS */
+  }
+
+  .review-card {
+    min-width: 300px;
+    /* Фіксована ширина картки */
+    scroll-snap-align: start;
+    /* Картка прилипає до початку */
+  }
+
+  /* Ховаємо скролбар для краси (опціонально, але стильно) */
+  .reviews__grid::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .reviews__grid::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  .reviews__grid::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+}

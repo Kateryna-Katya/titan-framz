@@ -1,34 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/test/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <script type="module" crossorigin src="/test/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/test/assets/styles-X9THPhCB.css">
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Titan-Framz — інноваційна IT школа. Технологія нового покоління для вашого старту в IT.">
+  <title>Titan-Framz | IT Школа майбутнього</title>
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+    <script type="module" crossorigin src="/titan-framz/index.js"></script>
+    <link rel="stylesheet" crossorigin href="/titan-framz/assets/styles-CF1LTtcO.css">
   </head>
   <body>
     <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
-        </svg>
-      </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
+  <div class="header__container container">
+    <a href="./#hero" class="header__logo">Titan-Framz</a>
+
+    <nav class="header__nav nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="./#hero" class="nav__link">Главная</a></li>
+        <li class="nav__item"><a href="./#program" class="nav__link">Программа</a></li>
+        <li class="nav__item"><a href="./#mentors" class="nav__link">Менторы</a></li>
+        <li class="nav__item"><a href="./#features" class="nav__link">Преимущества</a></li>
+        <li class="nav__item"><a href="./#reviews" class="nav__link">Отзывы</a></li>
+        <li class="nav__item"><a href="./#faq" class="nav__link">FAQ</a></li>
+        <li class="nav__item"><a href="./#contact" class="nav__link nav__link--cta">Напиши нам</a></li>
       </ul>
+      <button class="header__burger" aria-label="Открыть меню">
+        <i data-lucide="menu"></i>
+      </button>
     </nav>
   </div>
 </header>
-
 
     <main>
       <!-- Loads the specified .html file -->
@@ -36,21 +46,68 @@
     </main>
 
     <footer class="footer">
-  <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
+  <div class="footer__container container">
+    <div class="footer__col footer__col--info">
+      <a href="./#hero" class="footer__logo">Titan-Framz</a>
+      <p class="footer__desc">
+        Воплотите мечты в реальность вместе с нами. Платформа года для старта карьеры в IT.
+      </p>
+      <div class="footer__contacts">
+        <a href="tel:+393478910254" class="footer__contact-link">
+          <i data-lucide="phone"></i>
+          <span>+39 347 891 0254</span>
+        </a>
+        <a href="mailto:hello@titan-framz.click" class="footer__contact-link">
+          <i data-lucide="mail"></i>
+          <span>hello@titan-framz.click</span>
+        </a>
+        <div class="footer__address">
+          <i data-lucide="map-pin"></i>
+          <span>Via Alessandro Volta 14, 20121 Milano MI, Italy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__col footer__col--nav">
+      <h3 class="footer__title">Навигация</h3>
+      <ul class="footer__list">
+        <li><a href="./#program" class="footer__link">Программа</a></li>
+        <li><a href="./#mentors" class="footer__link">Менторы</a></li>
+        <li><a href="./#features" class="footer__link">Преимущества</a></li>
+        <li><a href="./#reviews" class="footer__link">Отзывы</a></li>
+        <li><a href="./#faq" class="footer__link">Вопросы и ответы</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col footer__col--legal">
+      <h3 class="footer__title">Юридическая информация</h3>
+      <ul class="footer__list">
+        <li><a href="./privacy.html" class="footer__link">Политика конфиденциальности</a></li>
+        <li><a href="./cookies.html" class="footer__link">Политика Cookies</a></li>
+        <li><a href="./terms.html" class="footer__link">Условия использования</a></li>
+        <li><a href="./return.html" class="footer__link">Условия возврата</a></li>
+        <li><a href="./disclaimer.html" class="footer__link">Отказ от ответственности</a></li>
+        <li><a href="./personal-data-policy.html" class="footer__link">Обработка персональных данных</a></li>
+      </ul>
+      <p class="footer__note">Предложение активно только в странах ЕС</p>
+    </div>
+  </div>
+
+  <div class="footer__bottom container">
+    <p>&copy; 2024 Titan-Framz. Все права защищены.</p>
   </div>
 </footer>
 
+    <div id="cookie-popup" class="cookie-popup">
+      <div class="cookie-popup__content">
+        <p class="cookie-popup__text">
+          Этот сайт использует cookies для улучшения работы. Подробнее — в нашей
+          <a href="./cookies.html">Cookie политике</a>.
+        </p>
+        <button id="accept-cookies" class="cookie-popup__btn">Принять</button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
   </body>
 </html>

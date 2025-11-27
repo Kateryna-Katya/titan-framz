@@ -118,3 +118,70 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    /* --- CONTACT FORM LOGIC --- */
+    const form = document.getElementById('lead-form');
+    const successMsg = document.getElementById('form-success');
+
+    // Captcha Elements
+    const captchaQuestion = document.getElementById('captcha-question');
+    const captchaInput = document.getElementById('captcha-answer');
+
+    let correctAnswer = 0;
+
+    // Функція генерації простого прикладу
+    function generateCaptcha() {
+        if (!captchaQuestion) return;
+        const num1 = Math.floor(Math.random() * 10) + 1;
+        const num2 = Math.floor(Math.random() * 10) + 1;
+        correctAnswer = num1 + num2;
+        captchaQuestion.textContent = `${num1} + ${num2}`;
+    }
+
+    // Запускаємо генерацію при завантаженні
+    generateCaptcha();
+
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Зупиняємо стандартну відправку
+
+            // 1. Перевірка Капчі
+            const userAnswer = parseInt(captchaInput.value);
+            if (userAnswer !== correctAnswer) {
+                alert('Ошибка: Неверное решение примера (капча). Попробуйте снова.');
+                generateCaptcha(); // Оновлюємо приклад
+                captchaInput.value = '';
+                return;
+            }
+
+            // 2. Імітація відправки (Loading state)
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Обработка...';
+
+            // 3. Затримка для реалізму (2 секунди)
+            setTimeout(() => {
+                // Ховаємо форму (прозорість)
+                form.style.opacity = '0';
+
+                // Показуємо повідомлення про успіх
+                successMsg.classList.add('show');
+
+                // Очищаємо форму
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+
+                // Оновлюємо капчу для наступного разу
+                generateCaptcha();
+
+                // Відновлюємо прозорість форми (хоча вона під блоком success, але для порядку)
+                setTimeout(() => {
+                    form.style.opacity = '1';
+                    // Але successMsg все ще перекриває її завдяки z-index і position absolute
+                }, 500);
+
+            }, 2000);
+        });
+    }

@@ -66,3 +66,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Titan-Framz: Menu & Cookies logic loaded');
 });
+/* --- VANTA.JS ANIMATION --- */
+    // Перевіряємо, чи існує елемент hero перед запуском
+    if (document.querySelector('#hero')) {
+        try {
+            VANTA.NET({
+                el: "#hero",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x6366f1,       // Основний колір (Indigo)
+                backgroundColor: 0x0b0f19, // Колір фону (як у body)
+                points: 12.00,         // Кількість точок
+                maxDistance: 22.00,    // Дистанція з'єднань
+                spacing: 18.00         // Відстань між точками
+            })
+        } catch (error) {
+            console.log("Vanta JS animation error (library might not be loaded):", error);
+        }
+    }

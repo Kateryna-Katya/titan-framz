@@ -1627,3 +1627,10 @@ img {
 .pages a:hover {
   color: var(--color-accent);
 }
+.pages h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: white;
+  margin: 25px 0 15px;
+  font-weight: 600;
+}

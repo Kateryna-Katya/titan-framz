@@ -88,4 +88,33 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.log("Vanta JS animation error (library might not be loaded):", error);
         }
-    }
+}
+    /* --- FAQ ACCORDION LOGIC --- */
+    const faqItems = document.querySelectorAll('.faq__item');
+
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq__question');
+        const answer = item.querySelector('.faq__answer');
+
+        questionBtn.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Спочатку закриваємо всі інші відкриті пункти (ефект гармошки)
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq__answer').style.maxHeight = null;
+                }
+            });
+
+            // Тогглим поточний пункт
+            if (isActive) {
+                item.classList.remove('active');
+                answer.style.maxHeight = null;
+            } else {
+                item.classList.add('active');
+                // Встановлюємо висоту рівно по контенту
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+        });
+    });
